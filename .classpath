@@ -11,5 +11,8 @@
 	<classpathentry exported="true" kind="lib" path="Librarys/stringsearch-2.jar" sourcepath="Librarys/stringsearch-2-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="Librarys/itextpdf-5.1.3-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="Librarys/pdfbox-1.7.1.jar" sourcepath="Librarys/pdfbox-1.7.1-src.zip"/>
+	<classpathentry kind="lib" path="Librarys/jdom-2.0.5.jar"/>
+	<classpathentry kind="lib" path="Librarys/jaxp-api.jar"/>
+	<classpathentry kind="lib" path="Librarys/JAXP_145.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

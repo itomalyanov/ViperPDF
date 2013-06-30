@@ -16,7 +16,7 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
 import org.apache.pdfbox.util.PDFTextStripper;
 
-import com.sun.xml.internal.messaging.saaj.util.TeeInputStream;
+//import com.sun.xml.internal.messaging.saaj.util.TeeInputStream;
 import com.viperPDF.GUI.Utils;
 import com.viperPDF.ioFiles.FileType;
 import com.viperPDF.ioFiles.GenerateDOM;
