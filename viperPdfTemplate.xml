@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<PdfFileInfo>
+	<documentInfo>
+		<title>Viper PDF</title>
+		<pages>324</pages>
+		<size unit="MB">25</size>
+		<date>02/15/1988</date> 
+	</documentInfo> 
+	<documentResearch>
+		<searchFor>
+			<pattern>ilian</pattern>
+			<date>09/06/2013</date> 
+		</searchFor>
+		<matches>
+			<match>
+				<id>01</id>
+				<string>ilian metodiev tomalyanov</string>
+				<page>34</page>
+				<row>12</row>
+			</match>
+		</matches>			
+	</documentResearch> 
+	<documentText> 
+	Ilian Metodiev Tomalyanov
+	Blagoevgrad Elenovo,
+	Plovdiv Center,
+	Sofia Lylin,  
+	</documentText>  
+</PdfFileInfo>
