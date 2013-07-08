@@ -7,7 +7,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.apache.pdfbox.cos.COSDocument;
@@ -16,11 +18,9 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
 import org.apache.pdfbox.util.PDFTextStripper;
 
-//import com.sun.xml.internal.messaging.saaj.util.TeeInputStream;
 import com.viperPDF.GUI.Utils;
 import com.viperPDF.ioFiles.FileType;
 import com.viperPDF.ioFiles.GenerateDOM;
-import com.viperPDF.ioFiles.InfoFile;
 
 /**
  * Class Engine;
@@ -44,6 +44,7 @@ public class Engine {
 	private BufferedReader stream;
 	private String pattern;
 	public StringBuilder pdfToText;
+	private Map<Integer, String> parsedByPages;
 	
 //	private InfoFile tempFile;
 	private GenerateDOM generateDOM;
@@ -57,7 +58,7 @@ public class Engine {
 	private PDDocument 			 	pdDoc;
 	private COSDocument 			cosDoc;
 	private PDDocumentInformation 	pdDocInfo;
-	private StringBuilder 			StringBuilder;
+//	private StringBuilder 			stringBuilder;
 
 	public Engine(String filePath, String pattern) {
 		this(filePath);
@@ -136,16 +137,18 @@ public class Engine {
 			pdfStripper = new PDFTextStripper();
 			pdDoc = new PDDocument(cosDoc);
 			pdDocInfo = pdDoc.getDocumentInformation();
-		  
+		   
 			List<Integer> pages = deliver(pdDoc.getNumberOfPages());
+			parsedByPages = new HashMap<>();
 			logger.info("Open file:" +  selectedFile.getName());
 			logger.info("Delivering pages. Pages count:" + pdDoc.getNumberOfPages());	
 			for (int i = 0; i < pages.size(); i++) {
 				if (i % 2 == 0) {
 					pdfStripper.setStartPage(pages.get(i));
 					pdfStripper.setEndPage(pages.get(i + 1));
-
-					parsedText.append(pdfStripper.getText(pdDoc));
+					String parsed = pdfStripper.getText(pdDoc);
+					 
+					parsedText.append(parsed);
 				}
 			}
 			setPdfToText(parsedText);
@@ -232,7 +235,7 @@ public class Engine {
 			return pages;
 		}
 
-		if ( pageNumbers > 1999 ) { parts = 20; }
+		if ( pageNumbers > 100 ) { parts = 20; }
 		else 			  { parts = 10; }
 
 		deliver = pageNumbers / parts;
@@ -259,8 +262,7 @@ public class Engine {
 					stop += deliver;
 				}
 			}
-		}
-
+		} 
 		return pages;
 	}
 
@@ -330,6 +332,13 @@ public class Engine {
 	 */
 	public void setSelectedFile(File selectedFile) {
 		this.selectedFile = selectedFile;
+	}
+
+	/**
+	 * @return the parsedByPages
+	 */
+	public Map<Integer, String> getParsedByPages() {
+		return parsedByPages;
 	}
 
 	

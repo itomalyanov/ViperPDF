@@ -12,9 +12,9 @@ import java.util.Map;
  */
 public class ViperHorspool {
 
-	private String p, t; // Pattern, Text
-	private int pL; // pattern length;
-	private long tL; // text length
+	private String pattern, text; // Pattern, Text
+	private int pattLenght; // pattern length;
+	private long textLenght; // text length
 	private Map<Character, Integer> badCharacter;
 	
 	/**
@@ -26,30 +26,30 @@ public class ViperHorspool {
 
 	public void setPattern(String pattern) {
 		
-		pL = pattern.length();
-		p = pattern;
-		badCharacter = new HashMap<Character, Integer>(pL);
+		pattLenght = pattern.length();
+		this.pattern = pattern;
+		badCharacter = new HashMap<Character, Integer>(pattLenght);
 		horospoolInitbatChar();
 	}
 
 	private void horospoolInitbatChar() {
 
-		for(int i = 0; i < pL-1; i++) {
-			badCharacter.put(p.charAt(i), pL-i-1);
+		for(int i = 0; i < pattLenght-1; i++) {
+			badCharacter.put(pattern.charAt(i), pattLenght-i-1);
 		}
 	}
 	
 	public void setText(String text) {
-		tL = text.length();
-		t = text;
+		textLenght = text.length();
+		text = text;
 		
 	}
 
 	public void ilian(String txt, String pattern) {
 		setText(txt);
 		setPattern(pattern);
-//		search(pattern, txt);
-		viperSearch(txt, pattern);
+		search(pattern, txt);
+//		viperSearch(txt, pattern);
 	}
 
 	public int search(String pattern, String text) {
@@ -79,19 +79,19 @@ public class ViperHorspool {
 
 		int i = 0, j;
 		char tmpCharAtText;
-		while (i <= tL - pL) {
-			j = pL - 1;
-			tmpCharAtText = t.charAt(i + j);
-			while (j >= 0 && p.charAt(j) == t.charAt(i + j)) {
+		while (i <= textLenght - pattLenght) {
+			j = pattLenght - 1;
+			tmpCharAtText = text.charAt(i + j);
+			while (j >= 0 && pattern.charAt(j) == text.charAt(i + j)) {
 				System.out.println("pattern chart at:" + i + " is:"
-						+ p.charAt(i));
+						+ pattern.charAt(i));
 				System.out.println("pattern chart at:" + i + " is:"
-						+ p.charAt(i));
+						+ pattern.charAt(i));
 				j--;
 			}
 
 			// if(j<=0) return true;
-			i += pL - 1;
+			i += pattLenght - 1;
 			i -= badCharacter.get(tmpCharAtText);
 		}
 		return false;
@@ -101,8 +101,8 @@ public class ViperHorspool {
 
 		ViperHorspool vip = new ViperHorspool();
 
-		String t = "илиан методиев томаляновsdttrtddsrreerwreterrewwerwreetr";
-		String p = "малянов";
+		String t = "Here we are working only with english alphabetic!";
+		String p = "working";
 
 		vip.ilian(t, p);
 		if (t.charAt(7) == p.charAt(0)) {

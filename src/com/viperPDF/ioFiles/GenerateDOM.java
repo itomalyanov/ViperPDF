@@ -30,8 +30,7 @@ public class GenerateDOM extends DefaultHandler  {
 	private String tmpTag;
 	private StringBuilder parsedText;
 	private Engine inputEngine; 
-	private String testGit;
-	
+	 
 	public GenerateDOM(Engine engine) {
 		parsedText = new StringBuilder();
 		setInputEngine(engine);

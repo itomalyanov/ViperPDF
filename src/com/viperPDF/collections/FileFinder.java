@@ -72,7 +72,7 @@ public class FileFinder {
 	 */
 	private void traverseDir(File file) {
 
-		System.out.println(file.getAbsolutePath());
+		System.out.println("viper "+file.getAbsolutePath());
 		if (file.isDirectory()) {
 			String[] children = file.list();
 

@@ -8,8 +8,8 @@ package com.viperPDF.ioFiles;
  */
 public enum FileType {
 	TXT("txt"), INFO_XML_FILE("info.xml"), PDF("pdf"), INFO_XML_PATH(
-			"C:\\Users\\viper\\git\\ViperPdfSearch\\ViperPdfSearching\\system\\workingFiles\\");
-
+			"E:\\GitVersion\\ViperPDF\\system\\workingFiles\\");
+	
 	private String type;
 
 	private FileType(String stype) {

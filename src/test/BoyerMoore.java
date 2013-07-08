@@ -40,7 +40,7 @@ public class BoyerMoore {
 
     private char[] pattern;  // store the pattern as a character array
     private String pat;      // or as a string
-
+    
     // pattern provided as a string
     public BoyerMoore(String pat) {
         this.R = 256;
@@ -111,7 +111,7 @@ public class BoyerMoore {
 
     // test client
     public static void main(String[] args) {
-        String pat = "rabrabracad";
+        String pat = "abracab";
         String txt = "abacadabrabracabracadabrabrabracad";
 //        System.out.println(Text.TEXT.length());
         char[] pattern = pat.toCharArray();
@@ -132,7 +132,7 @@ public class BoyerMoore {
 
         System.out.print("pattern: ");
         for (int i = 0; i < offset2; i++)
-        	System.out.print(" ");
+        	System.out.print("-");
         System.out.println(pat);
     }
 }
